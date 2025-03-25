@@ -209,6 +209,7 @@
                     const surat = suratData.data;
                     if (surat.suratSebelumnya) prev.innerText = surat.suratSebelumnya.namaLatin;
                     if (surat.suratSelanjutnya) next.innerText = surat.suratSelanjutnya.namaLatin;
+                    document.title = `${surat.namaLatin} - MasFana's Quran`
                     // Update header
                     document.getElementById('suratTitle').textContent = `${surat.nomor}. ${surat.namaLatin}`;
                     document.getElementById('suratMeta').innerHTML = `
