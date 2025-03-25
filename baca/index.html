@@ -185,13 +185,13 @@
 
             prev.addEventListener('click', () => {
                 if (suratNumber > 1) {
-                    window.location.href = `/baca/?nomor=${suratNumber - 1}`;
+                    window.location.href = `/baca/?nomor=${suratNumber/1 - 1}`;
                 }
             });
 
             next.addEventListener('click', () => {
                 if (suratNumber < 114) {
-                    window.location.href = `/baca/?nomor=${suratNumber + 1}`;
+                    window.location.href = `/baca/?nomor=${suratNumber/1 + 1}`;
                 }
             });
 
