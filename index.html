@@ -2,21 +2,17 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
     <title>MasFana's Quran</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style>
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            transition: border-color 0.3s ease
         }
 
         body {
@@ -25,260 +21,421 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .container {
+        .hero-container {
             width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid rgba(250, 250, 250, 0.2);
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(250, 250, 250, 0.1);
             min-height: 100vh;
-            border-top: none;
-        }
-
-        @media (min-width: 640px) {
-            .container {
-                max-width: 640px;
-            }
-
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                max-width: 768px;
-
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1024px;
-            }
-
-        }
-
-        @media (min-width: 1280px) {
-            .container {
-                max-width: 1280px;
-            }
-
-        }
-
-        @media (min-width: 1536px) {
-
-
-            .container {
-                max-width: 1536px;
-            }
-        }
-
-        .search-container {
-            background-color: #121212c2;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100.2%;
-            gap: 1rem;
-            display: flex;
-            flex-direction: row;
-            border: 1px solid rgba(250, 250, 250, 0.2);
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 0 10px rgba(250, 250, 250, 0.1);
-            padding-right: 1rem;
-            margin: 0;
-            padding: 0.25rem 0;
-            padding-right: 1rem;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 8px 16px;
-            margin: 8px 0;
-            border: 1px solid #fafafa33;
-            border-radius: 4px;
-            
-            background-color: #1e1e1e;
-            color: #fafafa;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .search-container h4 {
-            padding: 0.5rem 0;
-            line-height: 1rem;
-            text-align: center;
-        }
-
-        .containerSurat {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem
-        }
-
-        @media (max-width: 640px) {
-            .containerSurat {
-                flex-direction: column;
-            }
-        }
-
-        @media (min-width: 640px) {
-            .containerSurat>* {
-                flex: 0 1 calc(50% - 1rem);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .containerSurat>* {
-                flex: 0 1 calc(33.333% - 1rem);
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .containerSurat>* {
-                flex: 0 1 calc(25% - 1rem);
-            }
-        }
-
-
-        .surat-card {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid rgba(250, 250, 250, 0.1);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
         }
 
-        .surat-card:hover {
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fafafa;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #aaaaaa;
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: #2d2d2d;
+            color: #fafafa;
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .hero-button:hover {
+            background-color: #fafafa;
+            color: #121212;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button-primary {
+            background-color: #fafafa;
+            color: #121212;
+        }
+
+        .hero-button-primary:hover {
+            background-color: #2d2d2d;
+            color: #fafafa;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(250, 250, 250, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border-color: rgba(250, 250, 250, 0.3);
         }
 
-        .surat-number {
-            background-color: #2d2d2d;
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
             color: #fafafa;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
         }
 
-        .surat-name {
+        .feature-title {
             font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
-        .surat-translation {
-            color: #aaaaaa;
+        .feature-desc {
             font-size: 0.9rem;
+            color: #aaaaaa;
+            line-height: 1.5;
         }
 
-        .surat-meta {
+        /* modal */
+        .modal {
+            width: 100%;
+            max-width: 600px;
+            border: none;
+            border-radius: 8px;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #fafafa;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+        .modal::backdrop {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            padding: 20px;
+        }
+
+        .modal-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 0.5rem;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(250, 250, 250, 0.1);
         }
 
-        .surat-arabic {
-            text-align: right;
+        .modal-header h2 {
             font-size: 1.5rem;
-            margin-top: 0.5rem;
-            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            color: #fafafa;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        .close-modal:hover {
+            color: #fafafa;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            border: 1px solid rgba(250, 250, 250, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .feature-item:hover {
+            border-color: rgba(250, 250, 250, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .feature-text h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: #fafafa;
+        }
+
+        .feature-text p {
+            margin: 0;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .modal-footer {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(250, 250, 250, 0.1);
+        }
+
+        .modal-close-btn {
+            background-color: #2d2d2d;
+            color: #fafafa;
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #fafafa;
+            color: #121212;
+        }
+
+        @media (max-width: 480px) {
+            .modal {
+                width: 95%;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .modal[open] {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        #tab {
+            position: absolute;
+            z-index: 10;
+            filter: brightness(0.5);
+            width: 10rem;
+            left: -1rem;
+            bottom: -2rem;
+            animation: jump 1.5s ease-in-out infinite;
+            transform-origin: center bottom;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.4s ease-out;
+
+        }
+
+        #tab2 {
+            position: absolute;
+            z-index: 10;
+            filter: brightness(0.5);
+            width: 10rem;
+            right: -2rem;
+            bottom: -2rem;
+            animation: jump 1.5s ease-in-out infinite;
+            transform-origin: center bottom;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.4s ease-out;
+
+        }
+
+        #tab:hover {
+            scale: 1.1;
+            filter: brightness(1);
+            transition: all 0.2s ease-in;
+        }
+
+        #tab2:hover {
+            scale: 1.1;
+            filter: brightness(1);
+            transition: all 0.2s ease-in;
+        }
+
+        @keyframes jump {
+            0% {
+
+                transform: translateY(0) rotateX(0deg);
+            }
+
+            50% {
+                transform: translateY(-1rem) rotateX(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotateX(0deg);
+            }
         }
     </style>
 </head>
 
 <body>
+    <section class="hero-container">
+        <img src="tab.webp" alt="Tabtab" id="tab">
+        <img src="tab.webp" alt="Tabtab" id="tab2">
 
-    <main class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">MasFana's Digital Quran
+            </h1>
+            <p class="hero-subtitle">
+                Baca, pelajari, dan pahami Al-Quran dengan mudah. Dilengkapi dengan terjemahan,
+                dan fitur pencarian untuk membantu Anda dalam membaca kitab suci.
+            </p>
+            <div>
+                <a href="/surat" class="hero-button hero-button-primary">Mulai Membaca</a>
+                <button onclick="document.getElementById('featuresModal').showModal()" class="hero-button">Fitur
+                    Aplikasi</button>
+            </div>
 
-        <nav class="search-container">
-            <h4>Fana's Quran</h4>
-            <input type="text" id="searchInput" placeholder="Cari surat...">
-        </nav>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">Baca Quran</h3>
+                    <p class="feature-desc">
+                        Akses seluruh 114 surat Al-Quran dengan terjemahan bahasa Indonesia.
+                    </p>
+                </div>
 
-        <div id="surat" class="containerSurat">
-            <h1 style="text-align: center;">Loading Surat...</h1>
-        </div>
-    </main>
-
-</body>
-
-
-<script>
-    let surat = [];
-    let filterSurat = [];
-
-    function fetchSurat() {
-        fetch('https://equran.id/api/v2/surat')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                surat = data.data;
-                filterSurat = data.data;
-                populateSurat();
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    fetchSurat();
-
-    function createSuratCard(surat) {
-        const card = document.createElement('div');
-        card.className = 'surat-card';
-        card.innerHTML = `
-            <div class="surat-number">${surat.nomor}</div>
-            <div class="surat-content">
-                <h3 class="surat-name">${surat.namaLatin}</h3>
-                <p class="surat-translation">${surat.arti}</p>
-                <div class="surat-meta">
-                    <span>${surat.jumlahAyat} ayat</span>
-                    <span>${surat.tempatTurun}</span>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Pencarian Cepat</h3>
+                    <p class="feature-desc">
+                        Temukan surat atau ayat dengan mudah menggunakan fitur pencarian.
+                    </p>
                 </div>
             </div>
-            <div class="surat-arabic">${surat.nama}</div>
-        `;
+        </div>
+    </section>
 
-        // click event baca surat 
-        card.addEventListener('click', () => {
-            // Navigasi ke surat
-            document.location.href = "/baca/?nomor=" + surat.nomor;
+    <!-- diialog -->
+    <dialog id="featuresModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Fitur Aplikasi</h2>
+                <button class="close-modal" onclick="document.getElementById('featuresModal').close()"
+                    aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="feature-icon">📖</div>
+                        <div class="feature-text">
+                            <h3>Baca Quran Lengkap</h3>
+                            <p>114 surat dengan teks Arab dan terjemahan Indonesia</p>
+                        </div>
+                    </li>
+
+                    <li class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <h3>Pencarian Cepat</h3>
+                            <p>Cari surat berdasarkan nama latin atau arti</p>
+                        </div>
+                    </li>
+
+                    <li class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-text">
+                            <h3>Responsive Design</h3>
+                            <p>Tampilan optimal untuk semua perangkat</p>
+                        </div>
+                    </li>
+
+                    <li class="feature-item">
+                        <div class="feature-icon">🌙</div>
+                        <div class="feature-text">
+                            <h3>Mode Gelap</h3>
+                            <p>Tema dark yang nyaman di malam hari</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-btn"
+                    onclick="document.getElementById('featuresModal').close()">Tutup</button>
+            </div>
+        </div>
+    </dialog>
+    <audio id="mstab"
+        src="https://raw.githubusercontent.com/imamamacuuu/FanaImage/main/uploads/Sawt%20safiri%20el%20bolboli%20(Inshad)%20-%20Ahmed%20El%20Qatane%20(mp3cut.net).mp3"
+        autoplay loop></audio>
+    <script>
+        // Tutup modall
+        document.getElementById('featuresModal').addEventListener('click', function (event) {
+            if (event.target === this) {
+                this.close();
+            }
         });
+        function play() {
 
-        return card;
-    }
+            const audio = document.getElementById('mstab');
+            const playPromise = audio.play();
+        }
+        play();
 
-    function populateSurat() {
-        const eSurat = document.getElementById('surat');
-        eSurat.innerHTML = ''; // Clear content
-        filterSurat.forEach(element => {
-            eSurat.appendChild(createSuratCard(element));
-        });
-    }
-
-    // Search 
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        filterSurat = surat.filter(s =>
-            s.namaLatin.toLowerCase().includes(searchTerm) ||
-            s.arti.toLowerCase().includes(searchTerm) ||
-            s.nama.toLowerCase().includes(searchTerm)
-        );
-        populateSurat();
-    });
-</script>
-
+        document.addEventListener('mouseenter', () => play())
+    </script>
+</body>
 
 </html>

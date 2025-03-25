@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>MasFana's Quran</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease
+        }
+
+        body {
+            background-color: #121212;
+            color: #fafafa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(250, 250, 250, 0.1);
+            min-height: 100vh;
+            border-top: none;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+
+        }
+
+        @media (min-width: 1536px) {
+
+
+            .container {
+                max-width: 1536px;
+            }
+        }
+
+        .search-container {
+            background-color: #121212c2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100.2%;
+            gap: 1rem;
+            display: flex;
+            flex-direction: row;
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 10px rgba(250, 250, 250, 0.1);
+            padding-right: 1rem;
+            margin: 0;
+            padding: 0.25rem 0;
+            padding-right: 1rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 8px 16px;
+            margin: 8px 0;
+            border: 1px solid #fafafa33;
+            border-radius: 4px;
+            
+            background-color: #1e1e1e;
+            color: #fafafa;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-container a {
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            line-height: 1rem;
+            text-align: center;
+            color:#fafafa;
+            text-decoration: none;
+        }
+
+        .containerSurat {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem
+        }
+
+        @media (max-width: 640px) {
+            .containerSurat {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .containerSurat>* {
+                flex: 0 1 calc(50% - 1rem);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .containerSurat>* {
+                flex: 0 1 calc(33.333% - 1rem);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .containerSurat>* {
+                flex: 0 1 calc(25% - 1rem);
+            }
+        }
+
+
+        .surat-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(250, 250, 250, 0.1);
+        }
+
+        .surat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: rgba(250, 250, 250, 0.3);
+        }
+
+        .surat-number {
+            background-color: #2d2d2d;
+            color: #fafafa;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .surat-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .surat-translation {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+
+        .surat-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        .surat-arabic {
+            text-align: right;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <nav class="search-container">
+            <a href="/">Fana's Quran</a>
+            <input type="text" id="searchInput" placeholder="Cari surat...">
+        </nav>
+
+        <div id="surat" class="containerSurat">
+            <h1 style="text-align: center;">Loading Surat...</h1>
+        </div>
+    </main>
+
+</body>
+
+
+<script>
+    let surat = [];
+    let filterSurat = [];
+
+    function fetchSurat() {
+        fetch('https://equran.id/api/v2/surat')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                surat = data.data;
+                filterSurat = data.data;
+                populateSurat();
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    fetchSurat();
+
+    function createSuratCard(surat) {
+        const card = document.createElement('div');
+        card.className = 'surat-card';
+        card.innerHTML = `
+            <div class="surat-number">${surat.nomor}</div>
+            <div class="surat-content">
+                <h3 class="surat-name">${surat.namaLatin}</h3>
+                <p class="surat-translation">${surat.arti}</p>
+                <div class="surat-meta">
+                    <span>${surat.jumlahAyat} ayat</span>
+                    <span>${surat.tempatTurun}</span>
+                </div>
+            </div>
+            <div class="surat-arabic">${surat.nama}</div>
+        `;
+
+        // click event baca surat 
+        card.addEventListener('click', () => {
+            // Navigasi ke surat
+            document.location.href = "/baca/?nomor=" + surat.nomor;
+        });
+
+        return card;
+    }
+
+    function populateSurat() {
+        const eSurat = document.getElementById('surat');
+        eSurat.innerHTML = ''; // Clear content
+        filterSurat.forEach(element => {
+            eSurat.appendChild(createSuratCard(element));
+        });
+    }
+
+    // Search 
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        filterSurat = surat.filter(s =>
+            s.namaLatin.toLowerCase().includes(searchTerm) ||
+            s.arti.toLowerCase().includes(searchTerm) ||
+            s.nama.toLowerCase().includes(searchTerm)
+        );
+        populateSurat();
+    });
+</script>
+
+
+</html>
