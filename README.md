@@ -34,6 +34,8 @@ Aplikasi web modern dan responsif untuk membaca Al-Quran dengan terjemahan dan f
 ```
 /
 ├── index.html         # Halaman utama
+├── surat /            
+    └──index.html      # Halaman navigasi surat
 ├── baca / 
     └──index.html      # Halaman pembaca surah
 ├── favicon.ico        # Ikon aplikasi
